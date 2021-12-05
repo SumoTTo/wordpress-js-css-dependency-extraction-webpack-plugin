@@ -1,0 +1,61 @@
+{
+	"name": "@sumotto/wordpress-js-css-dependency-extraction-webpack-plugin",
+	"version": "0.0.0",
+	"description": "WordPress CSS & JS Dependency Extraction Webpack Plugin",
+	"keywords": [
+		"wordpress",
+		"css",
+		"js",
+		"dependency",
+		"extraction",
+		"webpack",
+		"plugin"
+	],
+	"homepage": "https://github.com/SumoTTo/wordpress-js-css-dependency-extraction-webpack-plugin#readme",
+	"bugs": {
+		"url": "https://github.com/SumoTTo/wordpress-js-css-dependency-extraction-webpack-plugin/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/SumoTTo/wordpress-js-css-dependency-extraction-webpack-plugin.git"
+	},
+	"funding": "https://ko-fi.com/SumoTTo",
+	"license": "MIT",
+	"author": {
+		"name": "Sigalin Kirill",
+		"email": "sumotto@yandex.ru",
+		"url": "https://sumotto.ru"
+	},
+	"publishConfig": {
+		"access": "public"
+	},
+	"scripts": {
+		"lint": "eslint {scripts,src,test}/**/*.js",
+		"fix": "eslint {scripts,src,test}/**/*.js --fix",
+		"test": "npm run lint",
+		"build": "node build",
+		"prepare": "husky install",
+		"prepublishOnly": "npm run build",
+		"releaseTests": "npm run lint",
+		"releasePreview": "cross-env HUSKY=0 np --preview --test-script=releaseTests",
+		"release": "cross-env HUSKY=0 np --test-script=releaseTests"
+	},
+	"main": "dist/index.js",
+	"files": [
+		"dist/"
+	],
+	"dependencies": {
+		"json2php": "latest"
+	},
+	"peerDependencies": {
+		"webpack": "^5"
+	},
+	"devDependencies": {
+		"@wordpress/eslint-plugin": "latest",
+		"cross-env": "latest",
+		"eslint": "latest",
+		"husky": "latest",
+		"np": "latest",
+		"terser": "latest"
+	}
+}
