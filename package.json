@@ -1,6 +1,6 @@
 {
 	"name": "@sumotto/wordpress-js-css-dependency-extraction-webpack-plugin",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "WordPress CSS & JS Dependency Extraction Webpack Plugin",
 	"keywords": [
 		"wordpress",
