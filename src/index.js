@@ -36,7 +36,7 @@ class WordpressJsCssDependencyExtractionWebpackPlugin {
 		compiler.hooks.thisCompilation.tap( this.name, ( compilation ) => {
 			const parameters = {
 				name: this.name,
-				stage: compiler.webpack.Compilation.PROCESS_ASSETS_STAGE_ADDITIONAL,
+				stage: compiler.webpack.Compilation.PROCESS_ASSETS_STAGE_REPORT,
 			};
 			compilation.hooks.processAssets.tap( parameters, () => this.#addAssetsPHP( compilation, compiler ) );
 		} );

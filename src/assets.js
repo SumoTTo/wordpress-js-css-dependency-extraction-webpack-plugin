@@ -70,15 +70,17 @@ function getAssets( entrypoint, compilation ) {
 		const ext = extMatch[ 1 ] === 'mjs' ? 'js' : extMatch[ 1 ];
 		const asset = compilation.getAsset( entryPointPublicPath );
 
-		assets.push( {
-			handle: entrypoint.options.name + ( index[ ext ] ? '-' + index[ ext ] : '' ),
-			type: ext,
-			src: entryPointPublicPath,
-			ver: asset.info.contenthash || asset.info.chunkhash,
-			gzip_size: zlib.gzipSync( asset.source.buffer() ).length,
-		} );
+		if ( asset ) {
+			assets.push( {
+				handle: entrypoint.options.name + ( index[ ext ] ? '-' + index[ ext ] : '' ),
+				type: ext,
+				src: entryPointPublicPath,
+				ver: asset.info.contenthash || asset.info.chunkhash,
+				gzip_size: zlib.gzipSync( asset.source.buffer() ).length,
+			} );
 
-		index[ ext ]++;
+			index[ ext ]++;
+		}
 	} );
 
 	return assets;

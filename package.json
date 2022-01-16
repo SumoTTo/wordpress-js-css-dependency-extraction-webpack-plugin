@@ -45,7 +45,7 @@
 		"dist/"
 	],
 	"dependencies": {
-		"json2php": "latest"
+		"json2php": "*"
 	},
 	"peerDependencies": {
 		"webpack": "^5"
